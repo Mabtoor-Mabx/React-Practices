@@ -43,6 +43,9 @@ const clearText = () => {
 <h2> Your Text Summary </h2>
 <p>Your Text Has {text.split(" ").length-1} words and {text.length} Characters  </p>
 <p> { 0.008 * text.split("").length} minutes to read </p>
+
+<h2>Preview</h2>
+<p> {text.length>0?text : 'Enter Something That Display as a Preview' } </p>
 </div>
 
 </div>
