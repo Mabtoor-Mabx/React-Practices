@@ -6,17 +6,21 @@ export default function  (props) {
     const ConvertToUpper= () =>{
         let newText = text.toUpperCase();
         settext(newText);
+        props.showAlert("Uppercase Successfully", 'success');
     }
     const handelOnChange = (event) =>{
         settext(event.target.value);
+     
     }
     const ConvertToLower =  () =>{
         let newText = text.toLowerCase();
         settext(newText);
+        props.showAlert("Lowercase Successfully", 'success');
     }
 
     const clearTheText = () =>{
         settext("");
+        props.showAlert("Text Clear Successfully", 'success');
     }
 
 
