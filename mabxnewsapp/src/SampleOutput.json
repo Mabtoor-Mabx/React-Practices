@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
-import NewsItems from './NewsItems'
-
-export class News extends Component {
-
-    articles= [
+{
+    "status": "ok",
+    "totalResults": 3,
+    "articles": [
         {
             "source": {
                 "id": "news24",
@@ -44,43 +42,4 @@ export class News extends Component {
             "content": "Last week, we at ESPNcricinfo did something we have been thinking of doing for eight years now: pretend-live ball-by-ball commentary for a classic cricket match. We knew the result, yes, but we tried… [+6823 chars]"
         }
     ]
-
-    constructor()
-    {
-        super();
-        this.state= {
-          articles  : [],
-          loading : false
-        }
-    }
-
-
-  async  componentDidMount () {
-    //   console.log('cdm');
-    let url = "https://newsapi.org/v2/top-headlines?country=&apiKey=72844674395744f2b3cec07719bc4c46";
-    let data =  await fetch(url);
-    // console.log(data);
-    let ParsedData = await data.json();
-    console.log(ParsedData);
-    this.setState({articles : ParsedData.articles})
-    }
-
-
-    render() {
-        return (
-            <div className='container'>
-                <div className="row">
-                    {this.state.articles.map((element) => {
-                       return  <div className="col-md-4" key={element.url}>
-                        <NewsItems title={element.title.slice(0,30)}  description={element.description.slice(0,50)} newsUrl={element.url} ImageUrl= {element.urlToImage}  info='Read More' />
-                        </div>
-                             } ) }
-                  
-                </div>
-                
-            </div>
-        )
-    }
 }
-
-export default News
